@@ -37,7 +37,7 @@ public:
   CDnsSeedOpts() : nThreads(96), nDnsThreads(4), nPort(53), mbox(NULL), ns(NULL), host(NULL), tor(NULL), fDaemon(false), fUseTestNet(false), fWipeBan(false), fWipeIgnore(false) {}
 
   void ParseCommandLine(int argc, char **argv) {
-    static const char *help = "CivX-seeder\n"
+    static const char *help = "exos-seeder\n"
                               "Usage: %s -h <host> -n <ns> [-m <mbox>] [-t <threads>] [-p <port>]\n"
                               "\n"
                               "Options:\n"
@@ -401,21 +401,21 @@ extern "C" void* ThreadStats(void*) {
   return nullptr;
 }
 
-static const string mainnet_seeds[] = {"seednode1.civx.cloud", "seednode2.exponentialz.com", "seednode3.civx.cloud", "seednode4.exponentialz.com", ""};
-static const string testnet_seeds[] = {"testseednode1.civx.cloud", "testseednode2.exponentialz.com", "testseednode3.civx.cloud", "testseednode4.exponentialz.com", ""};
+static const string mainnet_seeds[] = {"seednode1.oexo.cloud", "seednode2.oexo.net", "seednode3.oexo.cloud", "seednode4.oexo.net", ""};
+static const string testnet_seeds[] = {"testseednode1.oexo.cloud", "testseednode2.oexo.net", "testseednode3.oexo.cloud", "testseednode4.oexo.net", ""};
 static const string *seeds = mainnet_seeds;
 
 extern "C" void* ThreadSeeder(void*) {
   if (!fTestNet){
-    db.Add(CService("vps101.civx.cloud", 4562), true);
-    db.Add(CService("vps102.exponentialz.com", 4562), true);
-    db.Add(CService("vps201.civx.cloud", 4562), true);
-    db.Add(CService("vps202.exponentialz.com", 4562), true);
+    db.Add(CService("vps101.oexo.cloud", 4562), true);
+    db.Add(CService("vps102.oexo.net", 4562), true);
+    db.Add(CService("vps201.oexo.cloud", 4562), true);
+    db.Add(CService("vps202.oexo.net", 4562), true);
   } else {
-    db.Add(CService("vps151.civx.cloud", 14562), true);
-    db.Add(CService("vps152.exponentialz.com", 14562), true);
-    db.Add(CService("vps251.civx.cloud", 14562), true);
-    db.Add(CService("vps252.exponentialz.com", 14562), true);
+    db.Add(CService("vps151.oexo.cloud", 14562), true);
+    db.Add(CService("vps152.oexo.net", 14562), true);
+    db.Add(CService("vps251.oexo.cloud", 14562), true);
+    db.Add(CService("vps252.oexo.net", 14562), true);
   }
   do {
     for (int i=0; seeds[i] != ""; i++) {

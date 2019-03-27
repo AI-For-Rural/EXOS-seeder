@@ -1,7 +1,7 @@
-civx-seeder
+exos-seeder
 ==============
 
-CivX-seeder is a crawler for the CivX network, which exposes a list
+exos-seeder is a crawler for the EXOS network, which exposes a list
 of reliable nodes via a built-in DNS server.
 
 Features:
